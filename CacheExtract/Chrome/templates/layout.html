@@ -1,0 +1,37 @@
+<!doctype html>
+<title>Chorme Cache Analisis Result</title>
+
+<!-- Versión compilada y comprimida del CSS de Bootstrap -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Tema opcional -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+<div class="page-header">
+   <center><h1>Chome Cache Result</h1></center>
+</div>
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <center> <h3 class="panel-title">Cache</h3></center>
+  </div>
+  {% autoescape false %}
+  <div class="panel-body">
+    <center><ul class="list-group">
+  {% for entry in cache %}
+     <li class="list-group-item" ><p> Entry: {{entry}}</p>
+  {% else %}
+    <li class="list-group-item" ><em>Unbelievable.No cache entries here so far</em>
+  {% endfor %}
+  </ul></center>
+  </div>
+  {% endautoescape %}
+</div>
+  
+
+  
+{% endblock %}
+

@@ -1,0 +1,35 @@
+<!doctype html>
+<title>Firefox Analisis Result</title>
+
+<!-- Versión compilada y comprimida del CSS de Bootstrap -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Tema opcional -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+<div class="page-header">
+   <center><h1>Firefox Analisis Results</h1></center>
+</div>
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <center> <h3 class="panel-title">Cookies</h3></center>
+  </div>
+  <div class="panel-body">
+    <center><ul class="list-group">
+  {% for cookie in cookies %}
+     <li class="list-group-item" ><p> Domain: {{cookie[0]}}<br> Value: {{cookie[1]}}<br> Expiration Date: {{cookie[2]}}<br><br> Last Access Date: {{cookie[3]}}<br>
+     Creation Date: {{cookie[4]}}</p>
+  {% else %}
+    <li class="list-group-item" ><em>Unbelievable.No cookies here so far</em>
+  {% endfor %}
+  </ul></center>
+  </div>
+</div>
+  
+
+{% endblock %}
+

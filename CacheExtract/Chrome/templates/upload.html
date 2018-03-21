@@ -1,0 +1,9 @@
+<!doctype html>
+<center>
+	<title>Upload Chrome Cache File</title>
+	<h1>>Upload Chrome Cache File</h1>
+	<form method=POST enctype=multipart/form-data action="{{url_for ('upload_history')}}">
+		<input type=file name=file multiple>
+		<input type=submit value=Upload>
+	</form>
+</center>

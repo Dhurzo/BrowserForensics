@@ -1,0 +1,57 @@
+<!doctype html>
+<title>Chorme Analisis Result</title>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+
+<!-- Versión compilada y comprimida del CSS de Bootstrap -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Tema opcional -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+ <!-- 1 -->
+    <link title="timeline-styles" rel="stylesheet" href="//cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <script src="//cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <div id='timeline-embed' style="width: 100%; height: 600px"></div>
+
+ <!-- 3 -->
+
+<div class="page-header">
+   <center><h1>Chome Database Analisis Results</h1></center>
+</div>
+
+<script>
+
+  var currentLocation = window.location;
+  currentLocation = currentLocation.pathname;
+  currentLocation = currentLocation.replace("/cookies","");
+
+  var url = "/_getCookiesJson"+currentLocation;
+
+  window.timeline= new TL.Timeline('timeline-embed',url);
+
+</script>
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <center> <h3 class="panel-title">Cookies</h3></center>
+  </div>
+  <div class="panel-body">
+    <center><ul class="list-group">
+  {% for cookie in cookies %}
+    <li class="list-group-item" ><p> Creation date: {{cookie[0]}}<br> Host Key: {{cookie[1]}}<br> Path: {{cookie[2]}}<br><br> Expiration Date: {{cookie[3]}}<br>
+     Last Access: {{cookie[4]}}</p>
+
+  {% else %}
+    <li class="list-group-item" ><em>Unbelievable.No cookies here so far</em>
+  {% endfor %}
+  </ul></center>
+  </div>
+</div>
+  
+
+{% endblock %}
+
